@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import API from '../services/api';
 import { useNavigate } from 'react-router-dom';
 import CategoryChart from './CategoryChart';
+import styles from './Dashboard.module.css';
 
 function Dashboard() {
     const [expenses, setExpenses] = useState([]);
@@ -56,14 +57,12 @@ function Dashboard() {
         }
     };
 
-
-
-
     const handleEdit = (expense) => {
         setForm({
             title: expense.title,
             amount: expense.amount,
             date: expense.date,
+            category: expense.category
         });
         setEditingId(expense.id);
     };
@@ -74,12 +73,15 @@ function Dashboard() {
     };
 
     return (
-        <div>
-            <h2>Dashboard</h2>
-            <button onClick={handleLogout}>Logout</button>
+        <div className={styles.dashboardContainer}>
+            <div className={styles.headerRow}>
+                <h2 className={styles.title}>Dashboard</h2>
+                <button onClick={handleLogout} className={styles.logoutButton}>Logout</button>
+            </div>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={styles.form}>
                 <input
+                    className={styles.input}
                     name="title"
                     placeholder="Title"
                     value={form.title}
@@ -87,6 +89,7 @@ function Dashboard() {
                     required
                 />
                 <input
+                    className={styles.input}
                     name="amount"
                     type="number"
                     placeholder="Amount"
@@ -94,7 +97,12 @@ function Dashboard() {
                     onChange={handleChange}
                     required
                 />
-                <select name="category" value={form.category} onChange={handleChange}>
+                <select
+                    className={styles.select}
+                    name="category"
+                    value={form.category}
+                    onChange={handleChange}
+                >
                     <option value="">Select Category</option>
                     <option value="Food">Food</option>
                     <option value="Transport">Transport</option>
@@ -105,25 +113,45 @@ function Dashboard() {
                 </select>
 
                 <input
+                    className={styles.dateInput}
                     name="date"
                     type="date"
                     value={form.date}
                     onChange={handleChange}
                     required
                 />
-                <button type="submit">{editingId ? 'Update' : 'Add'} Expense</button>
+                <button type="submit" className={styles.submitButton}>
+                    {editingId ? 'Update' : 'Add'} Expense
+                </button>
             </form>
 
-            <ul>
+            <ul className={styles.expenseList}>
                 {expenses.map((exp) => (
-                    <li key={exp.id}>
-                        {exp.title} - ${exp.amount} on {exp.date} - {exp.category}
-                        <button onClick={() => handleEdit(exp)}>Edit</button>
-                        <button onClick={() => handleDelete(exp.id)}>Delete</button>
+                    <li key={exp.id} className={styles.expenseItem}>
+                        <span className={styles.expenseDetails}>
+                            {exp.title} - ${exp.amount} on {exp.date} - {exp.category}
+                        </span>
+                        <div className={styles.actionButtons}>
+                            <button
+                                onClick={() => handleEdit(exp)}
+                                className={styles.editButton}
+                            >
+                                Edit
+                            </button>
+                            <button
+                                onClick={() => handleDelete(exp.id)}
+                                className={styles.deleteButton}
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </li>
                 ))}
             </ul>
-            <CategoryChart expenses={expenses} />
+
+            <div className={styles.chartWrapper}>
+                <CategoryChart expenses={expenses} />
+            </div>
         </div>
     );
 }

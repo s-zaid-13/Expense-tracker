@@ -1,0 +1,33 @@
+.chartContainer {
+    max-width: 420px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.chartContainer:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.chartTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    color: #333333;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 480px) {
+    .chartContainer {
+        padding: 1rem;
+    }
+
+    .chartTitle {
+        font-size: 1.1rem;
+    }
+}

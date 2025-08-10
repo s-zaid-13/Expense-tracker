@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import styles from './Category.module.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -28,8 +29,8 @@ function CategoryChart({ expenses }) {
     };
 
     return (
-        <div style={{ maxWidth: 400, margin: 'auto' }}>
-            <h3>Expenses by Category</h3>
+        <div className={styles.chartContainer}>
+            <h3 className={styles.chartTitle}>Expenses by Category</h3>
             <Pie data={data} />
         </div>
     );

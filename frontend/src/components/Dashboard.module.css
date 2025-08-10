@@ -1,0 +1,177 @@
+.dashboardContainer {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333333;
+}
+
+.logoutButton {
+    padding: 0.4rem 0.8rem;
+    background: #ff4d4f;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    width: 5rem;
+}
+
+.logoutButton:hover {
+    background: #e04344;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.input,
+.select,
+.dateInput {
+    padding: 0.5rem;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    flex: 1 1 150px;
+}
+
+
+.submitButton {
+    padding: 0.5rem 1rem;
+    background: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.submitButton:hover {
+    background: #147ad6;
+}
+
+.expenseList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.expenseItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fafafa;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.6rem;
+    border: 1px solid #eaeaea;
+}
+
+.expenseDetails {
+    font-size: 0.95rem;
+    color: #555555;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.editButton,
+.deleteButton {
+    padding: 0.3rem 0.7rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.editButton {
+    background: #ffc107;
+    color: #333333;
+}
+
+.editButton:hover {
+    background: #e0a800;
+}
+
+.deleteButton {
+    background: #ff4d4f;
+    color: #ffffff;
+}
+
+.deleteButton:hover {
+    background: #e04344;
+}
+
+.chartWrapper {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 600px) {
+    .dashboardContainer {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .headerRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .title {
+        font-size: 1.4rem;
+    }
+
+    .logoutButton {
+        width: 100%;
+        padding: 0.6rem 0;
+    }
+
+    .form {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .input,
+    .select,
+    .dateInput,
+    .submitButton {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
+
+    .expenseItem {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .actionButtons {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .chartWrapper {
+        padding: 0.8rem;
+    }
+}
