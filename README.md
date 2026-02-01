@@ -1,4 +1,4 @@
-A full-stack Expense Tracker app with React frontend and Flask backend. Features JWT authentication, expense CRUD, and category charts.
+A full-stack Expense Tracker app with React as frontend and Flask as backend. Features JWT authentication, expense CRUD, and category charts.
 
 Tech Stack
 React, React Router, Axios, Chart.js
